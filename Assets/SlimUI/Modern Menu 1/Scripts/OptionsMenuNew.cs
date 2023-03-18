@@ -18,14 +18,9 @@ namespace SlimUI.ModernMenu{
 
 		[Header("VIDEO SETTINGS")]
 		public GameObject fullscreentext;
-		public GameObject ambientocclusiontext;
 		public GameObject shadowofftextLINE;
 		public GameObject shadowlowtextLINE;
 		public GameObject shadowhightextLINE;
-		public GameObject aaofftextLINE;
-		public GameObject aa2xtextLINE;
-		public GameObject aa4xtextLINE;
-		public GameObject aa8xtextLINE;
 		public GameObject vsynctext;
 		public GameObject motionblurtext;
 		public GameObject texturelowtextLINE;
@@ -46,14 +41,10 @@ namespace SlimUI.ModernMenu{
 
 		// sliders
 		public GameObject musicSlider;
-		public GameObject sensitivityXSlider;
-		public GameObject sensitivityYSlider;
-		public GameObject mouseSmoothSlider;
+		public GameObject sensitivitySlider;
 
 		private float sliderValue = 0.0f;
-		private float sliderValueXSensitivity = 0.0f;
-		private float sliderValueYSensitivity = 0.0f;
-		private float sliderValueSmoothing = 0.0f;
+		private float sliderValueSensitivity = 0.0f;
 		
 
 		public void  Start (){
@@ -70,16 +61,14 @@ namespace SlimUI.ModernMenu{
 
 			// check slider values
 			musicSlider.GetComponent<Slider>().value = PlayerPrefs.GetFloat("MusicVolume");
-			sensitivityXSlider.GetComponent<Slider>().value = PlayerPrefs.GetFloat("XSensitivity");
-			sensitivityYSlider.GetComponent<Slider>().value = PlayerPrefs.GetFloat("YSensitivity");
-			mouseSmoothSlider.GetComponent<Slider>().value = PlayerPrefs.GetFloat("MouseSmoothing");
+			sensitivitySlider.GetComponent<Slider>().value = PlayerPrefs.GetFloat("Sensitivity");
 
 			// check full screen
 			if(Screen.fullScreen == true){
 				fullscreentext.GetComponent<TMP_Text>().text = "on";
 			}
 			else if(Screen.fullScreen == false){
-				fullscreentext.GetComponent<TMP_Text>().text = "off";
+				fullscreentext.GetComponent<TMP_Text>().text = "off";	
 			}
 
 			// check hud value
@@ -121,30 +110,7 @@ namespace SlimUI.ModernMenu{
 					shadowlowtextLINE.gameObject.SetActive(false);
 					shadowhightextLINE.gameObject.SetActive(true);
 				}
-			}else if(platform == Platform.Mobile){
-				if(PlayerPrefs.GetInt("MobileShadows") == 0){
-					QualitySettings.shadowCascades = 0;
-					QualitySettings.shadowDistance = 0;
-					mobileShadowofftextLINE.gameObject.SetActive(true);
-					mobileShadowlowtextLINE.gameObject.SetActive(false);
-					mobileShadowhightextLINE.gameObject.SetActive(false);
-				}
-				else if(PlayerPrefs.GetInt("MobileShadows") == 1){
-					QualitySettings.shadowCascades = 2;
-					QualitySettings.shadowDistance = 75;
-					mobileShadowofftextLINE.gameObject.SetActive(false);
-					mobileShadowlowtextLINE.gameObject.SetActive(true);
-					mobileShadowhightextLINE.gameObject.SetActive(false);
-				}
-				else if(PlayerPrefs.GetInt("MobileShadows") == 2){
-					QualitySettings.shadowCascades = 4;
-					QualitySettings.shadowDistance = 100;
-					mobileShadowofftextLINE.gameObject.SetActive(false);
-					mobileShadowlowtextLINE.gameObject.SetActive(false);
-					mobileShadowhightextLINE.gameObject.SetActive(true);
-				}
 			}
-
 
 			// check vsync
 			if(QualitySettings.vSyncCount == 0){
@@ -170,14 +136,6 @@ namespace SlimUI.ModernMenu{
 				motionblurtext.GetComponent<TMP_Text>().text = "on";
 			}
 
-			// check ambient occlusion
-			if(PlayerPrefs.GetInt("AmbientOcclusion")==0){
-				ambientocclusiontext.GetComponent<TMP_Text>().text = "off";
-			}
-			else if(PlayerPrefs.GetInt("AmbientOcclusion")==1){
-				ambientocclusiontext.GetComponent<TMP_Text>().text = "on";
-			}
-
 			// check texture quality
 			if(PlayerPrefs.GetInt("Textures") == 0){
 				QualitySettings.masterTextureLimit = 2;
@@ -201,9 +159,7 @@ namespace SlimUI.ModernMenu{
 
 		public void Update (){
 			//sliderValue = musicSlider.GetComponent<Slider>().value;
-			sliderValueXSensitivity = sensitivityXSlider.GetComponent<Slider>().value;
-			sliderValueYSensitivity = sensitivityYSlider.GetComponent<Slider>().value;
-			sliderValueSmoothing = mouseSmoothSlider.GetComponent<Slider>().value;
+			sliderValueSensitivity = sensitivitySlider.GetComponent<Slider>().value;
 		}
 
 		public void FullScreen (){
@@ -223,16 +179,7 @@ namespace SlimUI.ModernMenu{
 		}
 
 		public void SensitivityXSlider (){
-			PlayerPrefs.SetFloat("XSensitivity", sliderValueXSensitivity);
-		}
-
-		public void SensitivityYSlider (){
-			PlayerPrefs.SetFloat("YSensitivity", sliderValueYSensitivity);
-		}
-
-		public void SensitivitySmoothing (){
-			PlayerPrefs.SetFloat("MouseSmoothing", sliderValueSmoothing);
-			Debug.Log(PlayerPrefs.GetFloat("MouseSmoothing"));
+			PlayerPrefs.SetFloat("Sensitivity", sliderValueSensitivity);
 		}
 
 		// the playerprefs variable that is checked to enable hud while in game
@@ -323,33 +270,6 @@ namespace SlimUI.ModernMenu{
 			shadowhightextLINE.gameObject.SetActive(true);
 		}
 
-		public void MobileShadowsOff (){
-			PlayerPrefs.SetInt("MobileShadows",0);
-			QualitySettings.shadowCascades = 0;
-			QualitySettings.shadowDistance = 0;
-			mobileShadowofftextLINE.gameObject.SetActive(true);
-			mobileShadowlowtextLINE.gameObject.SetActive(false);
-			mobileShadowhightextLINE.gameObject.SetActive(false);
-		}
-
-		public void MobileShadowsLow (){
-			PlayerPrefs.SetInt("MobileShadows",1);
-			QualitySettings.shadowCascades = 2;
-			QualitySettings.shadowDistance = 75;
-			mobileShadowofftextLINE.gameObject.SetActive(false);
-			mobileShadowlowtextLINE.gameObject.SetActive(true);
-			mobileShadowhightextLINE.gameObject.SetActive(false);
-		}
-
-		public void MobileShadowsHigh (){
-			PlayerPrefs.SetInt("MobileShadows",2);
-			QualitySettings.shadowCascades = 4;
-			QualitySettings.shadowDistance = 500;
-			mobileShadowofftextLINE.gameObject.SetActive(false);
-			mobileShadowlowtextLINE.gameObject.SetActive(false);
-			mobileShadowhightextLINE.gameObject.SetActive(true);
-		}
-
 		public void vsync (){
 			if(QualitySettings.vSyncCount == 0){
 				QualitySettings.vSyncCount = 1;
@@ -380,17 +300,6 @@ namespace SlimUI.ModernMenu{
 			else if(PlayerPrefs.GetInt("MotionBlur")==1){
 				PlayerPrefs.SetInt("MotionBlur",0);
 				motionblurtext.GetComponent<TMP_Text>().text = "off";
-			}
-		}
-
-		public void AmbientOcclusion (){
-			if(PlayerPrefs.GetInt("AmbientOcclusion")==0){
-				PlayerPrefs.SetInt("AmbientOcclusion",1);
-				ambientocclusiontext.GetComponent<TMP_Text>().text = "on";
-			}
-			else if(PlayerPrefs.GetInt("AmbientOcclusion")==1){
-				PlayerPrefs.SetInt("AmbientOcclusion",0);
-				ambientocclusiontext.GetComponent<TMP_Text>().text = "off";
 			}
 		}
 
