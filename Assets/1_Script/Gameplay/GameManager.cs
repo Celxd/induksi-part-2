@@ -55,4 +55,26 @@ public class GameManager : MonoBehaviour
     {
         scoreText.text = "Mushroom Eaten: " + score;
     }
+
+    public void Pause(GameObject pauseCanvas)
+    {
+        
+        
+            // Pause the game
+            Time.timeScale = 0f;
+
+            // Show the pause canvas
+            pauseCanvas.SetActive(true);
+        
+
+    }
+
+    public void Resume(GameObject pauseCanvas)
+    {
+        // Hide the pause canvas
+        pauseCanvas.SetActive(false);
+
+        // Resume the game
+        Time.timeScale = 1f;
+    }
 }

@@ -11,4 +11,5 @@ public class ScenePick : MonoBehaviour
     {
         SceneManager.LoadScene("SampleScene");
     }
+
 }
