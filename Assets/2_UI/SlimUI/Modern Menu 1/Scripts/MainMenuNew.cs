@@ -277,11 +277,13 @@ namespace SlimUI.ModernMenu{
 						}
 					}else{
 						operation.allowSceneActivation = true;
+                        
 					}
 				}
 				
 				yield return null;
 			}
+			
 		}
 	}
 }
