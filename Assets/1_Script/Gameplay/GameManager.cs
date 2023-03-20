@@ -1,4 +1,5 @@
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private int numCollectibles = 0; // Total number of collectibles in the scene
     private int numCollected = 0; // Number of collectibles the player has collected
+
+    [SerializeField] private TextMeshProUGUI scoreText; // Reference to the score text object
 
     private void Awake()
     {
@@ -21,10 +24,15 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        UpdateScoreText(); // Update the score text when the game starts
+    }
+
     public void AddScore(int amount)
     {
         score += amount;
-        Debug.Log("Score: " + score);
+        UpdateScoreText(); // Update the score text when the score changes
 
         // Check if all collectibles have been collected
         if (numCollectibles > 0 && numCollected >= numCollectibles)
@@ -41,5 +49,10 @@ public class GameManager : MonoBehaviour
     public void Collect()
     {
         numCollected++;
+    }
+
+    private void UpdateScoreText()
+    {
+        scoreText.text = "Mushroom Eaten: " + score;
     }
 }
