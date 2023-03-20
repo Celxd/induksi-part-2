@@ -107,6 +107,7 @@ GameObject:
   - component: {fileID: 3413151595477120287}
   - component: {fileID: 4780309760566562452}
   - component: {fileID: 8584458702923508314}
+  - component: {fileID: 838922478052860490}
   m_Layer: 0
   m_Name: Mushrooms01
   m_TagString: Untagged
@@ -193,6 +194,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreValue: 1
+  scoreText: {fileID: 0}
+  collectSound: {fileID: 0}
+  volume: 1
+  timelineAsset: {fileID: 0}
+  trackIndex: 0
 --- !u!65 &8584458702923508314
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -204,5 +210,22 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.51262766, y: 0.5567085, z: 0.57762176}
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: -0.022511922, y: 0.18569781, z: 0.054251224}
+--- !u!320 &838922478052860490
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3391149671270175259}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 0}
+  m_InitialState: 1
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings: []
+  m_ExposedReferences:
+    m_References: []
