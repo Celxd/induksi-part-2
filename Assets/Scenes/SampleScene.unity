@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 0}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 9aaa1361a93574e41a949f02eed4a2fc, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -7737,7 +7737,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1241055144}
-  m_LocalRotation: {x: -0.044864032, y: -0.00000001718905, z: -7.719474e-10, w: 0.9989931}
+  m_LocalRotation: {x: -0.04486401, y: 0.00000001718906, z: 7.719474e-10, w: 0.9989931}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -8264,7 +8264,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1319891084}
-  m_LocalRotation: {x: 0.22802606, y: 0.009865589, z: -0.0023106062, w: 0.97360235}
+  m_LocalRotation: {x: 0.2280175, y: 0.012983295, z: -0.0030407994, w: 0.97356576}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -10679,6 +10679,7 @@ GameObject:
   - component: {fileID: 1722086085}
   - component: {fileID: 1722086084}
   - component: {fileID: 1722086083}
+  - component: {fileID: 1722086087}
   m_Layer: 0
   m_Name: Main Camera (1)
   m_TagString: MainCamera
@@ -10778,7 +10779,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1722086082}
-  m_LocalRotation: {x: -0.044864044, y: -0.00000003437811, z: -0.0000000015438956, w: 0.9989931}
+  m_LocalRotation: {x: -0.044864003, y: 0.000000034378115, z: 0.0000000015438943, w: 0.9989931}
   m_LocalPosition: {x: 56.61, y: 2, z: 20.581}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -10786,6 +10787,15 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!45 &1722086087
+Skybox:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1722086082}
+  m_Enabled: 1
+  m_CustomSkybox: {fileID: 0}
 --- !u!1 &1723944787
 GameObject:
   m_ObjectHideFlags: 0

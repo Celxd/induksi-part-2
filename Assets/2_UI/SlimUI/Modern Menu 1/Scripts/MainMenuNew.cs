@@ -262,7 +262,7 @@ namespace SlimUI.ModernMenu{
 			AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);
 			operation.allowSceneActivation = false;
 			mainCanvas.SetActive(false);
-			loadingMenu.SetActive(true);
+			loadingMenu.SetActive(false);
 
 			while (!operation.isDone){
 				float progress = Mathf.Clamp01(operation.progress / .9f);
