@@ -47,7 +47,7 @@ public class Collectible : MonoBehaviour
                         var cam = Camera.main;
                         if (cam != null)
                         {
-                            track.SetGenericBinding(cam.gameObject, typeof(Camera));
+                            //track.SetGenericBinding(cam.gameObject, typeof(Camera));
                         }
                     }
                     else
